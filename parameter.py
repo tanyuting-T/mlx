@@ -51,3 +51,31 @@ periodic_d_y = 1.0                                       #parameter for 2.
 
 #parameter for delta interaction
 strength_delta = 1.0                                     #parameter for delta interaction
+
+'''
+Tan
+'''
+from sdvr_new import Sindvr
+
+Qx_dvr = Sindvr(nx,x_min,x_max)
+Qy_dvr = Sindvr(ny,y_min,y_max)
+
+# tree:                         
+#                        (+)
+#                        ||| N      
+#                         O -m     
+#                       /   \
+#                      /     \
+#                     O -mx   O -my
+#                     |       |
+#                     O -nx   O -ny
+
+tape = (-10,
+         N, 1, m, 
+        -1, 1,
+         2, 0, mx, my,
+        -1, 1,
+         1, 0, nx,
+         0,-1, 2,   
+         1, 0, ny,  
+        -2)
